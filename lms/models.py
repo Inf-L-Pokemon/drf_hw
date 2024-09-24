@@ -9,6 +9,9 @@ class Course(models.Model):
                                 **NULLABLE)
     description = models.TextField(verbose_name='Описание', help_text='Описание курса', **NULLABLE)
 
+    def __str__(self):
+        return f'{self.title}'
+
     class Meta:
         verbose_name = 'Курс'
         verbose_name_plural = 'Курсы'
@@ -21,7 +24,10 @@ class Lesson(models.Model):
     description = models.TextField(verbose_name='Описание', help_text='Описание урока', **NULLABLE)
     links_to_video = models.URLField(verbose_name='Ссылка на видео', help_text='Ссылка на видео по уроку', **NULLABLE)
 
-    courses = models.ManyToManyField(Course, related_name='lessons', verbose_name='Курсы', **NULLABLE)
+    courses = models.ManyToManyField(Course, related_name='lessons', verbose_name='Курсы')
+
+    def __str__(self):
+        return f'{self.title}'
 
     class Meta:
         verbose_name = 'Урок'
