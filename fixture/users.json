@@ -1,0 +1,82 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$870000$Ln5IyZ9vkRgVngfKR28mdq$FcF1ghpOty1s+TEaWzFIgmJEBOCChqYQdLiptKApp8A=",
+      "last_login": "2024-10-01T21:12:31.738Z",
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-10-01T21:12:07.247Z",
+      "email": "admin@example.ru",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "18320",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Икакий",
+      "last_name": "Икакиев",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-01T21:14:59Z",
+      "email": "client1@mail.rus",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+      "password": "18320",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Имя",
+      "last_name": "Фамилия",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-01T21:16:46Z",
+      "email": "client2@mail.rus",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+      "password": "18320",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Никто",
+      "last_name": "Никтов",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-10-01T21:17:49Z",
+      "email": "client3@mail.rus",
+      "phone": null,
+      "city": null,
+      "avatar": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "model": "users.payment",
+    "fields": {
+      "user": 2,
+      "paid_course": 1,
+      "amount": 121235.56,
+      "method": "Наличные"
+    }
+  },
+  {
+    "model": "users.payment",
+    "fields": {
+      "user": 3,
+      "paid_course": 2,
+      "amount": 11239.01,
+      "method": "Перевод на счет"
+    }
+  },
+  {
+    "model": "users.payment",
+    "fields": {
+      "user": 4,
+      "paid_lesson": 3,
+      "amount": 1001.99,
+      "method": "Наличные"
+    }
+  }
+]
