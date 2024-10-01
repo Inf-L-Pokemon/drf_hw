@@ -1,5 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils import timezone
+
+from lms.models import Course, Lesson
 
 NULLABLE = {'blank': True, 'null': True}
 
@@ -20,3 +23,21 @@ class User(AbstractUser):
     class Meta:
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
+
+
+class Payment(models.Model):
+    payment_method = (('cash', 'Наличные'), ('transfer_to_account', 'Перевод на счет'))
+
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='payments', null=True)
+    date = models.DateField(default=timezone.now, verbose_name='Дата оплаты')
+    paid_course = models.ForeignKey(Course, on_delete=models.SET_NULL, related_name='payments', **NULLABLE)
+    paid_lesson = models.ForeignKey(Lesson, on_delete=models.SET_NULL, related_name='payments', **NULLABLE)
+    amount = models.DecimalField(max_digits=19, decimal_places=2, verbose_name='Сумма оплаты', **NULLABLE)
+    method = models.CharField(max_length=30, choices=payment_method, verbose_name='Способ оплаты', **NULLABLE)
+
+    def __str__(self):
+        return f'{self.method} {self.amount}'
+
+    class Meta:
+        verbose_name = 'Платеж'
+        verbose_name_plural = 'Платежи'
