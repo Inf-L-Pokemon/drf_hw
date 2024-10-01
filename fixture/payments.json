@@ -2,7 +2,9 @@
   {
     "model": "users.payment",
     "fields": {
+      "id": 1,
       "user": 2,
+      "date": "2024-09-29",
       "paid_course": 1,
       "amount": 121235.56,
       "method": "Наличные"
@@ -11,6 +13,7 @@
   {
     "model": "users.payment",
     "fields": {
+      "id": 2,
       "user": 3,
       "paid_course": 2,
       "amount": 11239.01,
@@ -20,6 +23,7 @@
   {
     "model": "users.payment",
     "fields": {
+      "id": 3,
       "user": 4,
       "paid_lesson": 3,
       "amount": 1001.99,
