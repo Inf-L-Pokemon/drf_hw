@@ -1,32 +1,37 @@
 [
   {
     "model": "users.payment",
+    "pk": 1,
     "fields": {
-      "id": 1,
-      "user": 2,
+      "user": 6,
       "date": "2024-09-29",
       "paid_course": 1,
-      "amount": 121235.56,
+      "paid_lesson": null,
+      "amount": "121235.56",
       "method": "Наличные"
     }
   },
   {
     "model": "users.payment",
+    "pk": 2,
     "fields": {
-      "id": 2,
-      "user": 3,
+      "user": 7,
+      "date": "2024-10-01",
       "paid_course": 2,
-      "amount": 11239.01,
+      "paid_lesson": null,
+      "amount": "11239.01",
       "method": "Перевод на счет"
     }
   },
   {
     "model": "users.payment",
+    "pk": 3,
     "fields": {
-      "id": 3,
-      "user": 4,
+      "user": 1,
+      "date": "2024-10-01",
+      "paid_course": null,
       "paid_lesson": 3,
-      "amount": 1001.99,
+      "amount": "1001.99",
       "method": "Наличные"
     }
   }
