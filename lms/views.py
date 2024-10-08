@@ -10,7 +10,7 @@ from users.permissions import IsModerator, IsOwner
 
 
 class CourseViewSet(viewsets.ModelViewSet):
-    queryset = Course.objects.all()
+    queryset = Course.objects.all().order_by('title')
     pagination_class = CustomPagination
 
     def get_serializer_class(self):
@@ -27,13 +27,13 @@ class CourseViewSet(viewsets.ModelViewSet):
         elif self.action in ['retrieve', 'update', 'partial_update']:
             self.permission_classes = (IsModerator | IsOwner,)
         elif self.action == 'destroy':
-            self.permission_classes = (IsOwner & ~IsModerator,)
+            self.permission_classes = (IsOwner | ~IsModerator,)
         return super().get_permissions()
 
 
 class LessonCreateAPIView(generics.CreateAPIView):
     serializer_class = LessonSerializer
-    queryset = Lesson.objects.all()
+    queryset = Lesson.objects.all().order_by('title')
     permission_classes = (~IsModerator, IsAuthenticated)
 
     def perform_create(self, serializer):
@@ -42,25 +42,25 @@ class LessonCreateAPIView(generics.CreateAPIView):
 
 class LessonListAPIView(generics.ListAPIView):
     serializer_class = LessonSerializer
-    queryset = Lesson.objects.all()
+    queryset = Lesson.objects.all().order_by('title')
     pagination_class = CustomPagination
     permission_classes = (IsOwner | IsModerator, IsAuthenticated,)
 
 
 class LessonRetrieveAPIView(generics.RetrieveAPIView):
     serializer_class = LessonSerializer
-    queryset = Lesson.objects.all()
+    queryset = Lesson.objects.all().order_by('title')
     permission_classes = (IsOwner | IsModerator, IsAuthenticated,)
 
 
 class LessonUpdateAPIView(generics.UpdateAPIView):
     serializer_class = LessonSerializer
-    queryset = Lesson.objects.all()
+    queryset = Lesson.objects.all().order_by('title')
     permission_classes = (IsOwner | IsModerator, IsAuthenticated,)
 
 
 class LessonDestroyAPIView(generics.DestroyAPIView):
-    queryset = Lesson.objects.all()
+    queryset = Lesson.objects.all().order_by('title')
     permission_classes = (IsOwner | ~IsModerator, IsAuthenticated,)
 
 

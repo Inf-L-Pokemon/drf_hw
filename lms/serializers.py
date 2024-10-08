@@ -12,7 +12,6 @@ class LessonSerializer(serializers.ModelSerializer):
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    lessons = LessonSerializer(many=True)
 
     class Meta:
         model = Course

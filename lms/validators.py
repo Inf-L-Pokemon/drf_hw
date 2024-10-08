@@ -9,5 +9,5 @@ class YoutubeLinksValidator:
     def __call__(self, value):
         youtube_links = 'youtube.com'
         val = dict(value).get(self.field)
-        if youtube_links not in val:
+        if val and youtube_links not in val:
             raise ValidationError(f'Поле "{self.field}" должно содержать ссылку только на Youtube.')
