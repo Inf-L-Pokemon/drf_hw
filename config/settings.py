@@ -151,3 +151,5 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7)
 }
+
+STRIPE_API_KEY = config('STRIPE_API_KEY')

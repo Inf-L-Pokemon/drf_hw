@@ -28,12 +28,17 @@ class User(AbstractUser):
 class Payment(models.Model):
     payment_method = (('cash', 'Наличные'), ('transfer_to_account', 'Перевод на счет'))
 
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='payments', null=True)
-    date = models.DateField(default=timezone.now, verbose_name='Дата оплаты')
-    paid_course = models.ForeignKey(Course, on_delete=models.SET_NULL, related_name='payments', **NULLABLE)
-    paid_lesson = models.ForeignKey(Lesson, on_delete=models.SET_NULL, related_name='payments', **NULLABLE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, verbose_name='Пользователь', related_name='payments',
+                             null=True)
+    date = models.DateField(auto_now_add=True, verbose_name='Дата оплаты')
+    paid_course = models.ForeignKey(Course, on_delete=models.SET_NULL, verbose_name='Курс для оплаты',
+                                    related_name='payments', **NULLABLE)
+    paid_lesson = models.ForeignKey(Lesson, on_delete=models.SET_NULL, verbose_name='Урок для оплаты',
+                                    related_name='payments', **NULLABLE)
     amount = models.DecimalField(max_digits=19, decimal_places=2, verbose_name='Сумма оплаты', **NULLABLE)
     method = models.CharField(max_length=30, choices=payment_method, verbose_name='Способ оплаты', **NULLABLE)
+    session_id = models.CharField(max_length=255, verbose_name='ID сессии', **NULLABLE)
+    link = models.URLField(max_length=400, verbose_name='Ссылка на оплату', **NULLABLE)
 
     def __str__(self):
         return f'{self.method} {self.amount}'
