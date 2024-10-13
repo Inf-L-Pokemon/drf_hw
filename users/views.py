@@ -32,7 +32,7 @@ class UserDetailAPIView(generics.RetrieveAPIView):
     queryset = User.objects.all()
 
     def get_serializer_class(self):
-        if self.request.user == self.get_object():
+        if self.request.user == self.get_object:
             return UserSerializer
         return UserProfileSerializer
 
