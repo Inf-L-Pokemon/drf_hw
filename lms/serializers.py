@@ -29,7 +29,7 @@ class CourseDetailSerializer(serializers.ModelSerializer):
 
     def get_subscription(self, obj):
         user = self.context['request'].user
-        return obj.subscription_set.filter(user=user).exists()
+        return obj.subscriptions.filter(user=user).exists()
 
     class Meta:
         model = Course
