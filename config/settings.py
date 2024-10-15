@@ -158,6 +158,17 @@ STRIPE_API_KEY = config('STRIPE_API_KEY')
 CELERY_BROKER_URL = config('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND')
 
+CELERY_BEAT_SCHEDULE = {
+    'check_last_login': {
+        'task': 'lms.tasks.check_last_login',
+        'schedule': timedelta(days=1)
+    }
+}
+
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 15000
+
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
